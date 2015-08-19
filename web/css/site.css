@@ -6,16 +6,16 @@ body {
 .wrap {
     min-height: 100%;
     height: auto;
-    margin: 170px auto -60px;
+    margin: 30px auto -60px;
     padding: 0 0 60px;
 }
 
 .wrap > .container {
-    padding-top: 70px;
+    padding-top: 0px;
     padding-right: 15px;
     padding-left: 15px;
     padding-bottom: 20px;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
 }
 
 .footer {

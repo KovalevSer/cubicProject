@@ -4,6 +4,9 @@ use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
 use yii\base\Controller;
+use app\assets\ProjectAsset;
+
+//ProjectAsset::register($this);
 
 $this->beginContent('@app/views/layouts/main.php');
 ?>
