@@ -4,7 +4,7 @@ $params = require(__DIR__ . '/params.php');
 
 $config = [
     'id' => 'cubicTaskDemo',
-    'basePath' => dirname(__DIR__),
+    'basePath' => realpath(__DIR__ . '/../'),
     'components' => [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
@@ -16,6 +16,11 @@ $config = [
 //        'defaultRoute' => '/../controllers/cubicTask',
 //        'params' => $params,
         'db' => require(__DIR__ . '/db.php'),
+		//для красивых путей в URL
+		'urlManager' => [
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
     ],
     'modules' => [
          'cubicProject' => [
