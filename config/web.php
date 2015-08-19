@@ -32,6 +32,9 @@ $config = [
             'class' => 'yii\gii\Module',
             'allowedIPs' => ['127.0.0.1', '::1', 'localhost', '*'],
         ],
+        'migration' => [
+            'class' => 'c006\utility\migration\Module',
+        ]
     ],
     'bootstrap' => ['gii',],
 ];

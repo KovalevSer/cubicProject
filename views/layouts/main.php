@@ -48,7 +48,7 @@ use app\assets\AppAsset;
     ]);
     NavBar::end();
     ?>
-
+<div class="clear"></div>
     <div class="container">
         <?= $content ?>
     </div>

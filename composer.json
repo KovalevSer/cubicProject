@@ -2,7 +2,8 @@
     "require": {
         "yiisoft/yii2": "*",
         "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-debug": "^2.0@dev"
+        "yiisoft/yii2-debug": "^2.0@dev",
+        "c006/yii2-migration-utility": "dev-master"
     },
     "minimum-stability": "dev",
     "extra": {
