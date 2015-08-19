@@ -15,24 +15,6 @@ $this->beginContent('@app/views/layouts/main.php');
                 <?php
 //echo $this->context->getControllerPath();
                 echo Nav::widget( require (__DIR__ . '/../../config/moduleMenu.php'));
-//                echo Nav::widget([
-//                    'items' => [
-//                        [
-//                            'label' => 'Home',
-//                            'url' => ['default/index'],
-//                        ],
-//                        [
-//                            'label' => 'Projects',
-//                            'items' => [
-//                                ['label' => 'Project List', 'url' => ['projects/index']],
-//                                '<li class="divider"></li>',
-////                            '<li class="dropdown-header">Dropdown Header</li>',
-//                                ['label' => 'New Project', 'url' => ['projects/create']],
-//                            ],
-//                        ],
-//                    ],
-//                    'options' => ['class' => 'nav-pills'], // set this to nav-tab to get tab-styled navigation
-//                ]);
                 ?>
             </div>
             <div style="float: right">

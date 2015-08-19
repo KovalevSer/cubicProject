@@ -3,8 +3,8 @@
 namespace app\modules\cubicProject\controllers;
 
 use Yii;
-use app\modules\cubicProject\models\Projects;
-use app\modules\cubicProject\models\ProjectsSearch;
+use app\modules\cubicProject\models\Project;
+use app\modules\cubicProject\models\ProjectSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -12,7 +12,7 @@ use yii\filters\VerbFilter;
 /**
  * ProjectsController implements the CRUD actions for Projects model.
  */
-class ProjectsController extends Controller
+class ProjectController extends Controller
 {
     public function behaviors()
     {
@@ -32,7 +32,7 @@ class ProjectsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ProjectsSearch();
+        $searchModel = new ProjectSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -60,7 +60,7 @@ class ProjectsController extends Controller
      */
     public function actionCreate()
     {
-        $model = new Projects();
+        $model = new Project();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -112,8 +112,17 @@ class ProjectsController extends Controller
      */
     protected function findModel($id)
     {
-        if (($model = Projects::findOne($id)) !== null) {
+        if (($model = Project::findOne($id)) !== null) {
             return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
+    public function actionGetProjectName($id)
+    {
+        if (($model = Project::findOne($id)) !== null ) {
+
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }

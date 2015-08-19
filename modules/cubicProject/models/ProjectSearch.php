@@ -10,7 +10,7 @@ use app\modules\cubicProject\models\Projects;
 /**
  * ProjectsSearch represents the model behind the search form about `app\modules\cubicProject\models\Projects`.
  */
-class ProjectsSearch extends Projects
+class ProjectSearch extends Project
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class ProjectsSearch extends Projects
      */
     public function search($params)
     {
-        $query = Projects::find();
+        $query = Project::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

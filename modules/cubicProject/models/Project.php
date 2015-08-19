@@ -14,7 +14,7 @@ use Yii;
  * @property string $created
  * @property integer $responsible_user
  */
-class Projects extends \yii\db\ActiveRecord
+class Project extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -59,6 +59,6 @@ class Projects extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new ProjectsQuery(get_called_class());
+        return new ProjectQuery(get_called_class());
     }
 }

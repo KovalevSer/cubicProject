@@ -4,7 +4,7 @@ namespace app\modules\cubicProject\controllers;
 
 use Yii;
 use yii\web\Controller;
-use app\modules\cubicProject\models\ProjectsSearch;
+use app\modules\cubicProject\models\ProjectSearch;
 use app\modules\cubicProject\models\TasksSearch;
 
 class DefaultController extends Controller
@@ -13,7 +13,7 @@ class DefaultController extends Controller
     public function actionIndex()
     {
 
-        $searchProject = new ProjectsSearch();
+        $searchProject = new ProjectSearch();
         $dpProjectList = $searchProject->search(Yii::$app->request->queryParams);
 
         $searchTask = new TasksSearch();

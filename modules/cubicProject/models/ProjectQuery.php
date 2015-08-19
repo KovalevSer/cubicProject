@@ -7,7 +7,7 @@ namespace app\modules\cubicProject\models;
  *
  * @see Projects
  */
-class ProjectsQuery extends \yii\db\ActiveQuery
+class ProjectQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {
@@ -17,7 +17,7 @@ class ProjectsQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Projects[]|array
+     * @return Project[]|array
      */
     public function all($db = null)
     {
@@ -26,7 +26,7 @@ class ProjectsQuery extends \yii\db\ActiveQuery
 
     /**
      * @inheritdoc
-     * @return Projects|array|null
+     * @return Project|array|null
      */
     public function one($db = null)
     {
