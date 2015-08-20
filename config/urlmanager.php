@@ -5,9 +5,8 @@ return [
     'rules' => [
         'project\/<projectid:[\w\/_-]+>\/tasks\/<id:[\w\/_-]+>' => 'cubicProject/task/view',
         'project\/<projectID:[\w\/_-]+>\/tasks' => 'cubicProject/task/index',
-
-        'project' => 'cubicProject/default/index',
-        'project\/<id:[\w_\/-]+>' => 'cubicProject/project/view',
+        'project' => 'cubicProject/project/index',
+        'project\/<action: [\w\/_-]+>' => 'project/<action>',
 
     ]
 ];

@@ -25,6 +25,10 @@ $this->beginContent('@app/views/layouts/main.php');
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
             </div>
+            <div style="float: right">
+                <?= 'CurrentProject:'. \Yii::$app->session['ProjectID']
+                ?>
+            </div>
         </div>
         <div class="clear"></div>
         <div class="wrap"

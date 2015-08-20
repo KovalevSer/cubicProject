@@ -1,39 +1,66 @@
 <?php
-
-use yii\helpers\Html;
 use yii\grid\GridView;
-
-/* @var $this yii\web\View */
-/* @var $searchModel app\modules\cubicProject\models\ProjectsSearch */
-/* @var $dataProvider yii\data\ActiveDataProvider */
-
-$this->title = 'Projects';
-$this->params['breadcrumbs'][] = $this->title;
+use yii\data\ActiveDataProvider;
+use yii\helpers\Html;
+use yii\helpers\Url;
 ?>
-<div class="projects-index">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-    <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
+<div class="project-default-index">
+    <h1>Project Summary
+    </h1>
 
-    <p>
-        <?= Html::a('Create Projects', ['create'], ['class' => 'btn btn-success']) ?>
-    </p>
-
-    <?= GridView::widget([
-        'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+    <h2>Choose a Project</h2>
+    <div style='width: 80%;'>
+<?php
+echo  GridView::widget([
+        'dataProvider' => $dpProjectList,
+////        'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+//            ['class' => 'yii\grid\SerialColumn'],
+            [
+                'label'=>'ProjectName',
+                'format' => 'raw',
+                'value'=>function ($data) {
+//                    return Html::a($data['name'], Url::toRoute(['enter', 'id' => $data['id'],]));
+                    return Html::a($data['name'], Url::toRoute(['project/enter', 'id' => $data['id'],]));
 
-            'id',
-            'name',
-            'description',
-            'status',
-            'created',
-            // 'responsible_user',
-
+                },
+            ],
             ['class' => 'yii\grid\ActionColumn'],
         ],
-    ]); ?>
+  ]);
+?>
+        </div>
 
+<!--    <h2>My Projects</h2>-->
+    <div style='width: 80%;'>
+        <?php
+
+//        echo GridView::widget([
+//            'dataProvider' => $dpProjectList,
+//        ]);
+        ?>
+    </div>
+
+<!--    <h2>My Tasks</h2>-->
+    <div style='width: 80%;'>
+        <?php
+//
+//        echo GridView::widget([
+//            'dataProvider' => $dpTaskList,
+//        ]);
+        ?>
+    </div>
+
+</div>
+<p>
+    This is the view content for action "<?= $this->context->action->id ?>".
+    The action belongs to the controller "<?= get_class($this->context) ?>"
+    in the "<?= $this->context->module->id ?>" module.
+</p>
+
+<p>
+    You may customize this page by editing the following file:<br>
+    <code><?= __FILE__ ?></code>
+</p>
 </div>
