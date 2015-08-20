@@ -2,6 +2,10 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use yii\jui\DatePicker;
+use app\modules\cubicProject\models\Project;
+use app\modules\cubicProject\models\TaskStatus;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\cubicProject\models\Tasks */
@@ -12,11 +16,18 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'projectID')->textInput() ?>
+    <?php
+    $prjArr = Project::getProjectArr();
+    array_unshift($prjArr, '');
+
+     echo $form->field($model, 'projectID')->dropDownList($prjArr) ?>
 
     <?= $form->field($model, 'name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php
+    $stArr = TaskStatus::getTaskStatusArr();
+//    array_unshift($stArr, '');
+    echo $form->field($model, 'status')->dropDownList($stArr); ?>
 
     <?= $form->field($model, 'priority')->textInput() ?>
 
@@ -30,9 +41,15 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'created')->textInput() ?>
 
-    <?= $form->field($model, 'startDate')->textInput() ?>
+    <?= $form->field($model, 'startDate')->widget(\yii\jui\DatePicker::classname(), [
+        'language' => 'ru',
+        'dateFormat' => 'yyyy-MM-dd',
+    ]) ?>
 
-    <?= $form->field($model, 'finishDate')->textInput() ?>
+   <?= $form->field($model, 'finishDate')->widget(\yii\jui\DatePicker::classname(), [
+       'language' => 'ru',
+       'dateFormat' => 'yyyy-MM-dd',
+   ]) ?>
 
     <?= $form->field($model, 'authorID')->textInput() ?>
 

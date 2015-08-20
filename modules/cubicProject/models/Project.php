@@ -3,6 +3,7 @@
 namespace app\modules\cubicProject\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%cprj_projects}}".
@@ -69,6 +70,13 @@ class Project extends \yii\db\ActiveRecord
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
+    }
+
+    public static function getProjectArr()
+    {
+        $listData = ArrayHelper::map(Project::findAll(['1=1']), 'id', 'name');
+
+        return $listData;
     }
 
 }

@@ -10,6 +10,7 @@ $config = [
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '1A34B5992AFE443B55E33D010',
+            'baseUrl'=>'/cubicTask',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',
@@ -19,9 +20,8 @@ $config = [
         'db' => require(__DIR__ . '/db.php'),
 		//для красивых путей в URL
 		'urlManager' => [
-//            'enablePrettyUrl' => true,
-//            'showScriptName' => true,
-//            'showScriptName' => false,
+            'enablePrettyUrl' => true,
+            'showScriptName' => false,
         ],
     ],
     'modules' => [

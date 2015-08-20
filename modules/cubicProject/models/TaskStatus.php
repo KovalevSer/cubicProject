@@ -2,7 +2,11 @@
 
 namespace app\modules\cubicProject\models;
 
+
 use Yii;
+use app\modules\cubicProject\models\TaskStatus;
+use app\modules\cubicProject\models\TaskStatusSearch;
+use yii\helpers\ArrayHelper;
 
 /**
  * This is the model class for table "{{%cprj_taskstatus}}".
@@ -43,5 +47,13 @@ class TaskStatus extends \yii\db\ActiveRecord
             'name' => 'Name',
             'description' => 'Description',
         ];
+    }
+
+    public static function getTaskStatusArr()
+    {
+$model = new TaskStatus;
+        $listData = ArrayHelper::map( $model->find()->all(), 'id', 'name');
+
+        return $listData;
     }
 }
