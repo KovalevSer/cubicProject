@@ -30,10 +30,17 @@ class TaskController extends Controller
      * Lists all Tasks models.
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex($projectid = null)
     {
+
         $searchModel = new TaskSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $queryPar = array();
+        if (isset($projectid)) {
+            array_push($queryPar, ['projectID' => $projectid]);
+        }
+
+//        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = $searchModel->search($queryPar);
 
         return $this->render('index', [
             'searchModel' => $searchModel,
