@@ -2,6 +2,8 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use yii\widgets\ListView;
+
 
 /* @var $this yii\web\View */
 /* @var $model app\modules\cubicProject\models\Tasks */
@@ -25,11 +27,16 @@ $this->params['breadcrumbs'][] = $this->title;
         ]) ?>
     </p>
 
-    <?= DetailView::widget([
+    <?=
+    Html::encode($model->getProjectName())
+    ?>
+    <?=
+
+    DetailView::widget([
         'model' => $model,
         'attributes' => [
             'id',
-            'projectID',
+//            'projectID',
             'name',
             'status',
             'priority',
@@ -43,6 +50,34 @@ $this->params['breadcrumbs'][] = $this->title;
             'authorID',
             'responsibleID',
         ],
-    ]) ?>
+    ])
+    ?>
+
+    <h1>Task Comments: <?= Html::encode($model->getTaskComments()->count) ?></h1>
+    <?=
+    ListView::widget([
+        'dataProvider' => $model->getTaskComments(),
+        'itemView' => function ($model) {
+            echo '<tr><td>' . $model->message . '</td><td>' . $model->userID . '</td><td>' . $model->postedTime . '</td></tr>';
+        }
+    ]);
+    ?>
+
+    <h2>Subtasks</h2>
+    <?php
+    foreach ($model->getChildTasks() as $child) {
+       echo Html::a($child->name, ['task/view', 'id'=>$child->id,] );
+//        echo '<br>' . $child->name;
+    }
+    ?>
+
+    <?php
+    //    ListView::widget([
+    //        'dataProvider' => $model->getChildTasks(),
+    //        'itemView'=> function($model, $key) {
+    //            echo '<tr><td>' . $model->id . '</td><td>' . $model->name . '</td><td>' . $model->created . '</td></tr>';
+    //        }
+    //    ])
+    ?>
 
 </div>

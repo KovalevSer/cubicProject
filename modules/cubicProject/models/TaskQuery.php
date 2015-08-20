@@ -7,7 +7,7 @@ namespace app\modules\cubicProject\models;
  *
  * @see Tasks
  */
-class TasksQuery extends \yii\db\ActiveQuery
+class TaskQuery extends \yii\db\ActiveQuery
 {
     /*public function active()
     {

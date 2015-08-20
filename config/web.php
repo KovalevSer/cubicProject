@@ -18,10 +18,11 @@ $config = [
 //        'params' => $params,
         'db' => require(__DIR__ . '/db.php'),
 		//для красивых путей в URL
-//		'urlManager' => [
+		'urlManager' => [
 //            'enablePrettyUrl' => true,
+//            'showScriptName' => true,
 //            'showScriptName' => false,
-//        ],
+        ],
     ],
     'modules' => [
          'cubicProject' => [

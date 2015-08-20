@@ -3,16 +3,16 @@
 namespace app\modules\cubicProject\controllers;
 
 use Yii;
-use app\modules\cubicProject\models\Project;
-use app\modules\cubicProject\models\ProjectSearch;
+use app\modules\cubicProject\models\Task;
+use app\modules\cubicProject\models\TaskSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 
 /**
- * ProjectsController implements the CRUD actions for Projects model.
+ * TasksController implements the CRUD actions for Tasks model.
  */
-class ProjectController extends Controller
+class TaskController extends Controller
 {
     public function behaviors()
     {
@@ -27,12 +27,12 @@ class ProjectController extends Controller
     }
 
     /**
-     * Lists all Projects models.
+     * Lists all Tasks models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ProjectSearch();
+        $searchModel = new TaskSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -42,7 +42,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Displays a single Projects model.
+     * Displays a single Tasks model.
      * @param integer $id
      * @return mixed
      */
@@ -54,13 +54,13 @@ class ProjectController extends Controller
     }
 
     /**
-     * Creates a new Projects model.
+     * Creates a new Tasks model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Project();
+        $model = new Task();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
@@ -72,7 +72,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Updates an existing Projects model.
+     * Updates an existing Tasks model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -91,7 +91,7 @@ class ProjectController extends Controller
     }
 
     /**
-     * Deletes an existing Projects model.
+     * Deletes an existing Tasks model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -104,19 +104,18 @@ class ProjectController extends Controller
     }
 
     /**
-     * Finds the Projects model based on its primary key value.
+     * Finds the Tasks model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Projects the loaded model
+     * @return Tasks the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Project::findOne($id)) !== null) {
+        if (($model = Task::findOne($id)) !== null) {
             return $model;
         } else {
             throw new NotFoundHttpException('The requested page does not exist.');
         }
     }
-
- }
+}

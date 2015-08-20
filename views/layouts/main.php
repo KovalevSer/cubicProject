@@ -25,6 +25,7 @@ use app\assets\AppAsset;
 
 <?php $this->beginBody() ?>
 <div class="wrap">
+    <div class="navbar">
     <?php
     NavBar::begin([
         'brandLabel' => 'CubicLab',
@@ -48,10 +49,13 @@ use app\assets\AppAsset;
     ]);
     NavBar::end();
     ?>
-<div class="clear"></div>
+    </div>
+    <div class="wrap">
     <div class="container">
+
         <?= $content ?>
     </div>
+        </div>
 </div>
 
 <footer class="footer">

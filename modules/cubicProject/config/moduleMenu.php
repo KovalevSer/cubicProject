@@ -23,9 +23,10 @@ return [
         [
             'label' => 'Tasks',
             'items' => [
-                ['label' => 'Task List', 'url' => ['tasks/index']],
+                ['label' => 'Task List', 'url' => ['task/index']],
                 '<li class="divider"></li>',
-                ['label' => 'New Task', 'url' => ['tasks/create']],
+                ['label' => 'New Task', 'url' => ['task/create']],
+                ['label' => 'TaskComments', 'url'=>['task-comment/index']]
             ],
         ],
 

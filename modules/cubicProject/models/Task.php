@@ -3,6 +3,8 @@
 namespace app\modules\cubicProject\models;
 
 use Yii;
+use app\modules\cubicProject\models\Project;
+use app\modules\cubicProject\models\TaskComment;
 
 /**
  * This is the model class for table "{{%cprj_tasks}}".
@@ -22,8 +24,9 @@ use Yii;
  * @property integer $authorID
  * @property integer $responsibleID
  */
-class Tasks extends \yii\db\ActiveRecord
+class Task extends \yii\db\ActiveRecord
 {
+
     /**
      * @inheritdoc
      */
@@ -75,6 +78,31 @@ class Tasks extends \yii\db\ActiveRecord
      */
     public static function find()
     {
-        return new TasksQuery(get_called_class());
+        return new TaskQuery(get_called_class());
     }
+
+    public function getProjectName()
+    {
+        return Project::getProjectName($this->projectID);
+    }
+
+    public function getTaskComments()
+    {
+        $searchModel = new TaskCommentSearch();
+        return $searchModel->search(
+            ['taskID' => $this->id,]
+        );
+
+    }
+
+    public function getChildTasks()
+    {
+//        $searchModel = new TaskSearch();
+        $searchModel = new Task();
+        return $searchModel::findAll(['parentTask'=>$this->id,]);
+//        return $searchModel->search(
+//            ['parentTask' => '5',]
+//        );
+    }
+
 }

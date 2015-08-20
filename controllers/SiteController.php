@@ -24,8 +24,9 @@ class SiteController extends Controller
 
     public function actionIndex() {
         $module = \Yii::$app->getModule('cubicProject');
-        $path = Yii::$app->homeUrl;
-        $path = $module->getBasePath();
+//        $path = Yii::$app->homeUrl;
+        $path = ['//cubicProject'];
+
         return $this->render('index', ['path'=>$path,]);
 
     }

@@ -10,7 +10,7 @@ use app\modules\cubicProject\models\Tasks;
 /**
  * TasksSearch represents the model behind the search form about `app\modules\cubicProject\models\Tasks`.
  */
-class TasksSearch extends Tasks
+class TaskSearch extends Task
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class TasksSearch extends Tasks
      */
     public function search($params)
     {
-        $query = Tasks::find();
+        $query = Task::find();
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

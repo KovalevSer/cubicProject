@@ -61,4 +61,14 @@ class Project extends \yii\db\ActiveRecord
     {
         return new ProjectQuery(get_called_class());
     }
+
+    public static function getProjectName($id)
+    {
+        if (($model = Project::findOne($id)) !== null) {
+            return $model->name;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+
 }
